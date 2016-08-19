@@ -12,6 +12,8 @@ public class ArrayCreateByNew2 {
 			System.out.println("arr1[" + i + "] = " + arr1[i]);
 		}
 		
+		System.out.println(arr1[0] == arr1[1]);//기본비교는 ==
+		
 		//참조타입 배열
 		String[]arr4 = new String[3];
 		arr4[0] = "자바일";
@@ -20,6 +22,8 @@ public class ArrayCreateByNew2 {
 		for(int i=0; i<arr4.length; i++){ 
 			System.out.println("arr4[" + i + "] = " + arr4[i]);
 		}
+		
+		System.out.println(arr4[0].equals(arr4[1]));//참조비교는 .equals()
 	}
 
 }
