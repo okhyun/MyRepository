@@ -14,7 +14,7 @@ public class ScoreManagement2 {
 			System.out.print("선택 : ");
 			
 			String choice = scanner.nextLine();
-			if( choice.equals("1") ){
+			if( choice.equals("1") ){ //1.목록
 				System.out.println("********************************************************************");
 				System.out.println("번호 : \t\t제목 : \t\t글쓴이 : \t조회수 : ");//\t는 한만큼 띄운다.
 				System.out.println("********************************************************************");
@@ -24,7 +24,7 @@ public class ScoreManagement2 {
 						}
 					}
 				
-			} else if( choice.equals("2") ){
+			} else if( choice.equals("2") ){ //2.글쓰기(입력)
 				System.out.println("제목 : ");
 				String title = scanner.nextLine();
 				System.out.println("글쓴이 : ");
@@ -44,7 +44,7 @@ public class ScoreManagement2 {
 				}
 				
 				
-			} else if( choice.equals("3") ){
+			} else if( choice.equals("3") ){ //3.상세보기
 				for(String[] student : students){ //students 항목만큼 for문을 돌린다.
 					if(student !=null){
 						System.out.println("*************************");
@@ -53,7 +53,7 @@ public class ScoreManagement2 {
 							System.out.println(student[0] + "\t\t" + student[1]);
 						}
 					}
-				System.out.println("번호 선택 : ");//-------------------------****여기수정
+				System.out.println("번호 선택 : ");//-------------------------*************************여기수정***************************
 				String numchoice = scanner.nextLine();
 				for(int i = 0; i<students.length; i++){
 					if(students[i] != null){
@@ -62,14 +62,14 @@ public class ScoreManagement2 {
 				}
 				
 				
-			} else if( choice.equals("4") ){
+			} else if( choice.equals("4") ){ //4.수정
 				
-			} else if( choice.equals("5") ){
+			} else if( choice.equals("5") ){ //5.삭제
 				System.out.println("삭제할 번호 : ");
 				int delnum = Integer.parseInt(scanner.nextLine());
 				students[delnum] = null;
 				
-			} else if( choice.equals("6") ){
+			} else if( choice.equals("6") ){ //6.종료
 				break;
 			}
 			
