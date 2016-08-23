@@ -2,7 +2,7 @@ package ch05.exam03;
 
 import java.util.Scanner;
 
-public class ScoreManagement2 {
+public class ScoreManagement2 { //팀과제 1번
 
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);// 컨트롤 + 쉬프트 + o를 입력해서 import한다.
