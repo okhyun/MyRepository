@@ -11,7 +11,7 @@ public class ScoreManagement2 { //팀과제 1번
 		String title = null;
 		String name = null;
 		String typing = null;
-		int count = 0;
+		int count = 0; 
 		
 		
 		while(true){//while 반복문을 돌려서 참일때 그번호에 대한 조건문 실행.
