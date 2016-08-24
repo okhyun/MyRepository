@@ -4,7 +4,7 @@ public class Car {
 	//Field
 	int gas;
 	
-	//Construtor
+	//Constructor
 	
 	
 	//Method
