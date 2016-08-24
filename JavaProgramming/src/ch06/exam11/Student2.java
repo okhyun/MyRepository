@@ -2,16 +2,20 @@ package ch06.exam11;
 
 public class Student2 {
 	//Field
-	int no;
+	int num;
+	String title;
 	String name;
-	int score;
+	String typing;
+	int count; 
 	
 	//Constructor
 	Student2(){}
-	Student2(int no, String name, int score){
-		this.no = no;
+	Student2(int num, String title, String name, String typing, int count){
+		this.num = num;
+		this.title = title;
 		this.name = name;
-		this.score = score;
+		this.typing = typing;
+		this.count = count;
 	}
 	
 	//Method
