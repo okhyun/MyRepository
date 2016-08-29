@@ -1,4 +1,4 @@
-package ch06.exam11;
+package ch07.homework;
 
 import java.util.Scanner;
 
@@ -24,7 +24,7 @@ public class ScoreManagement2 { //팀과제 1번
 				System.out.println("********************************************************************");
 				for(Student2 student : students){ //students 항목만큼 for문을 돌린다.
 					if(student !=null){//배열 student가 null이 아닐때 student배열의 0번째부터 3번째까지 출력한다.//student라는 배열이 아직 생성이 되어있지 않은 상태.
-							System.out.println(student.num + "\t\t" + student.title+ "\t\t" + student.name + "\t\t" + student.count); 
+							System.out.println(student.getNum() + "\t\t" + student.getTitle()+ "\t\t" + student.getName() + "\t\t" + student.getCount()); 
 							
 					}
 				}
@@ -50,7 +50,7 @@ public class ScoreManagement2 { //팀과제 1번
 						System.out.println("***********************************************");
 						System.out.println("번호\t\t제목\t\t조회수");//\t는 1칸만큼 띄운다.
 						System.out.println("***********************************************");
-							System.out.println(student.num + "\t\t" + student.title + "\t\t" + student.count);
+							System.out.println(student.getNum() + "\t\t" + student.getTitle() + "\t\t" + student.getCount());
 					}
 				}
 					System.out.println("번호 선택 : ");
@@ -64,7 +64,7 @@ public class ScoreManagement2 { //팀과제 1번
 				}	
 					//count는 int타입이기때문에 조회수를 올리기위해선 이미 배열에 들어가있는 String타입 조회수를 int타입으로 바뀌준다.
 					count++;//카운트 한다.
-					students[numchoice].count = count;//students[numchoice][4] = String.valueOf(count); //int 타입으로 바꿔주었던 count를 다시 String타입으로 변환해준 후에 students[numchoice][4]안에 다시 넣어준다. 
+					students[numchoice].setCount(count);//students[numchoice][4] = String.valueOf(count); //int 타입으로 바꿔주었던 count를 다시 String타입으로 변환해준 후에 students[numchoice][4]안에 다시 넣어준다. 
 					
 				
 			} else if( choice.equals("4") ){ //4.수정
@@ -76,8 +76,8 @@ public class ScoreManagement2 { //팀과제 1번
 				System.out.println("수정할 내용 ");
 				String typing = scanner.nextLine(); //키보드로 입력받는다.
 								
-				students[modify].title = title;//수정할 위치에 키보드로 입력받은 값을 넣는다.
-				students[modify].typing = typing;//수정할 위치에 키보드로 입력받은 값을 넣는다.
+				students[modify].setTitle(title);//수정할 위치에 키보드로 입력받은 값을 넣는다.
+				students[modify].setTyping(typing);//수정할 위치에 키보드로 입력받은 값을 넣는다.
 				
 				
 			} else if( choice.equals("5") ){ //5.삭제
