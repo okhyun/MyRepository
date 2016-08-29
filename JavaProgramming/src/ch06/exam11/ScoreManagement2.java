@@ -6,7 +6,8 @@ public class ScoreManagement2 { //팀과제 1번
 
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);// 컨트롤 + 쉬프트 + o를 입력해서 import한다.
-		Student2[] students = new Student2[100];//String타입 배열을 생성
+		Student2[] students = new Student2[100]; //new Student2[100];//String타입 배열을 생성
+		int count = 0;
 		
 		
 		
@@ -37,8 +38,7 @@ public class ScoreManagement2 { //팀과제 1번
 				String typing = scanner.nextLine();//String타입(문자열)의 값을 키보드로 입력받는다.
 				for(int i=0; i<students.length; i++){ //변수 i를 지정하고 i를  0~99  [100]까지 1씩 증가 시키면서 돌린다.
 					if(students[i] == null){ //배열 students의 값이 null과 같을때 student값을 넣어준다.
-						Student2 student = { i, title, name, typing, count};// String 타입 배열 student에 위에서 입력받은 title name typing을 넣어준다.
-						students[i] = student;
+						students[i] = new Student2(i, title, name, typing, count);// String 타입 배열 student에 위에서 입력받은 title name typing을 넣어준다.
 						break;
 					}
 				}
@@ -62,9 +62,9 @@ public class ScoreManagement2 { //팀과제 1번
 							break;
 					}
 				}	
-					//count = Integer.parseInt(String.valueOf(count)); //count는 int타입이기때문에 조회수를 올리기위해선 이미 배열에 들어가있는 String타입 조회수를 int타입으로 바뀌준다.
+					//count는 int타입이기때문에 조회수를 올리기위해선 이미 배열에 들어가있는 String타입 조회수를 int타입으로 바뀌준다.
 					count++;//카운트 한다.
-					//students[numchoice][4] = String.valueOf(count); //int 타입으로 바꿔주었던 count를 다시 String타입으로 변환해준 후에 students[numchoice][4]안에 다시 넣어준다. 
+					students[numchoice].count = count;//students[numchoice][4] = String.valueOf(count); //int 타입으로 바꿔주었던 count를 다시 String타입으로 변환해준 후에 students[numchoice][4]안에 다시 넣어준다. 
 					
 				
 			} else if( choice.equals("4") ){ //4.수정
@@ -76,8 +76,8 @@ public class ScoreManagement2 { //팀과제 1번
 				System.out.println("수정할 내용 ");
 				String typing = scanner.nextLine(); //키보드로 입력받는다.
 								
-				students[modify][1] = title;//수정할 위치에 키보드로 입력받은 값을 넣는다.
-				students[modify][3] = typing;//수정할 위치에 키보드로 입력받은 값을 넣는다.
+				students[modify].title = title;//수정할 위치에 키보드로 입력받은 값을 넣는다.
+				students[modify].typing= typing;//수정할 위치에 키보드로 입력받은 값을 넣는다.
 				
 				
 			} else if( choice.equals("5") ){ //5.삭제
