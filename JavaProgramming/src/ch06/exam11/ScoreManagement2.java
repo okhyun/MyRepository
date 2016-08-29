@@ -7,7 +7,7 @@ public class ScoreManagement2 { //팀과제 1번
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);// 컨트롤 + 쉬프트 + o를 입력해서 import한다.
 		Student2[] students = new Student2[100]; //new Student2[100];//String타입 배열을 생성
-		int count = 0;
+		int count = 0; 
 		
 		
 		
