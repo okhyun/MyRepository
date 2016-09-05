@@ -24,6 +24,9 @@ public class CloneExample {
 class Member implements Cloneable { //한 파일에 두개의 클래스를 만들 수 있다. //파일이름과 다른클래스는 public을 붙일 수 없다.
 	String mid;
 	String mname;
+	int age;
+	String[] hobbys;
+	
 	Member(String mid, String mname) {
 		this.mid = mid;
 		this.mname = mname;
