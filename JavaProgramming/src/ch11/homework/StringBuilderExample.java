@@ -1,6 +1,6 @@
 package ch11.homework;
 
-//확인문제9번
+//11장 확인문제9번
 public class StringBuilderExample {
 
 	public static void main(String[] args) {

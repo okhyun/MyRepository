@@ -1,6 +1,6 @@
 package ch11.homework;
 
-//확인문제 3번 
+// 11장 확인문제 3번 
 public class Student { 
 	private String studentNum; //필드값
 	
@@ -13,7 +13,7 @@ public class Student {
 	}
 	
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) { //equals 재정의
 		if(obj instanceof Student) {
 			Student student = (Student) obj;
 			if(studentNum.equals(student.getStudentNum())) {
@@ -24,8 +24,8 @@ public class Student {
 	}
 	
 	@Override
-	public int hashCode() {
-		return studentNum.hashCode();
+	public int hashCode() { //hashCode 재정의
+		return studentNum.hashCode(); //리턴값으로 studentNum.hashCode() 리턴
 	}
 
 }

@@ -2,7 +2,7 @@ package ch11.homework;
 
 import java.util.StringTokenizer;
 
-//확인문제8번
+//11장 확인문제8번
 public class SplitExample {
 
 	public static void main(String[] args) {

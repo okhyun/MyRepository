@@ -1,6 +1,6 @@
 package ch11.homework;
 
-//확인문제4번
+//11장 확인문제4번
 public class Member {
 	private String id;
 	private String name;
