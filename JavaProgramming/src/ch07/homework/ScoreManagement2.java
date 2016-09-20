@@ -17,13 +17,13 @@ public class ScoreManagement2 { //팀과제 1번
 			System.out.println("--------------------------------------------------------------------");
 			System.out.print("선택 : ");
 			
-			String choice = scanner.nextLine();//String 타입 choice 변수에 scanner로 문자열타입을 넣겠다.(scanner로 문자열 타입으로 받겠다.)
-			if( choice.equals("1") ){ //1.목록//조건문에서 비교할때 .equals를 쓴 이유는 참조변수(객체)를 비교해야하기때문이다.(문자열 비교)
+			String choice = scanner.nextLine(); //String 타입 choice 변수에 scanner로 문자열타입을 넣겠다.(scanner로 문자열 타입으로 받겠다.)
+			if( choice.equals("1") ){  //1.목록//조건문에서 비교할때 .equals를 쓴 이유는 참조변수(객체)를 비교해야하기때문이다.(문자열 비교)
 				System.out.println("********************************************************************");
 				System.out.println("번호 : \t\t제목 : \t\t글쓴이 : \t조회수 : ");//\t는 한만큼 띄운다.
 				System.out.println("********************************************************************");
 				for(Student2 student : students){ //students 항목만큼 for문을 돌린다.
-					if(student !=null){//배열 student가 null이 아닐때 student배열의 0번째부터 3번째까지 출력한다.//student라는 배열이 아직 생성이 되어있지 않은 상태.
+					if(student !=null){ //배열 student가 null이 아닐때 student배열의 0번째부터 3번째까지 출력한다.//student라는 배열이 아직 생성이 되어있지 않은 상태.
 							System.out.println(student.getNum() + "\t\t" + student.getTitle()+ "\t\t" + student.getName() + "\t\t" + student.getCount()); 
 							
 					}

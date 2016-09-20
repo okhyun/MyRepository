@@ -24,11 +24,18 @@ public class MapExample {
 		//작성위치
 		Set<Entry<String, Integer>> set = map.entrySet();
 		for(Entry<String, Integer> entry : set) {
-			String key = entry.getKey();
-			int value = entry.getValue();
-			totalScore =
-					
+			 if(entry.getValue()>maxScore) {
+				 name = entry.getKey();
+				 maxScore = entry.getValue();
+			 }
+			 	totalScore += entry.getValue();
 		}
+
+		int avgScore = totalScore / map.size();
+		System.out.println("평균점수: " + avgScore);
+
+		System.out.println("최고점수: " + maxScore);
+		System.out.println("최고점수를 받은 아이디: " + name);
 
 	}
 
