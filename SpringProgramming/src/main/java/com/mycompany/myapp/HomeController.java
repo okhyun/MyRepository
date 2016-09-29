@@ -15,10 +15,5 @@ public class HomeController {
 		return "index"; //jsp 이름과 같아야한다.
 	}
 	
-	@RequestMapping("/news")
-	public String news(){
-		logger.info("news() 실행2"); 
-		return "news";
-	}
 	
 }
