@@ -24,3 +24,6 @@ public class Member {
 	public void setMage(String mage) {
 		this.mage = mage;
 	}
+	
+
+}
