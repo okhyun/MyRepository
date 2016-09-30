@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class OkhyunController1 {
 	private static final Logger logger = LoggerFactory.getLogger(OkhyunController1.class);
 	
+	@RequestMapping("/index")
+	public String index() {
+		logger.info("index 요청 처리");
+		return "okhyun1/index";
+	}
+	
 	@RequestMapping("/join")
 	public String join() {
 		logger.info("join 요청 처리");

@@ -7,6 +7,7 @@
 	</head>
 	<body>
 		Okhyun1
+		<br/>
 		<a href="/myapp1/okhyun1/join">가입</a><br/>
 		<a href="/myapp1/okhyun1/login">로그인</a><br/>
 		<a href="/myapp1/okhyun1/logout">로그아웃</a><br/>
