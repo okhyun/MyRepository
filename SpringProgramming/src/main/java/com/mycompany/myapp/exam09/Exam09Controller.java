@@ -11,7 +11,7 @@ public class Exam09Controller {
 	private static final Logger logger = LoggerFactory.getLogger(Exam09Controller.class);
 	
 	
-	
+	//주입받기 위한 필드입력
 	private A a;
 	public void setA(A a) {
 		logger.info("setA() 실행");
@@ -39,12 +39,34 @@ public class Exam09Controller {
 	
 	private ServiceC serviceC;
 	public void setServiceC(ServiceC serviceC) {
+		logger.info("setServiceC() 실행");
 		this.serviceC = serviceC;
 	}
 	
 	private ServiceD serviceD;
 	public void setServiceD(ServiceD serviceD) {
+		logger.info("setServiceD() 실행");
 		this.serviceD = serviceD;
+	}
+	
+	
+	private C c;
+	public void setC(C c)	{
+		logger.info("setC() 실행");
+		this.c = c;
+	}
+	
+	
+	private E e;
+	public void setE(E e) {
+		logger.info("setE() 실행");
+		this.e = e;
+	}
+	
+	private F f;
+	public void setF(F f) {
+		logger.info("setF() 실행");
+		this.f = f;
 	}
 
 	public Exam09Controller() {
@@ -68,4 +90,15 @@ public class Exam09Controller {
 		serviceD.method();
 		return "redirect:/exam09/index";
 	}
+	
+	
+	@RequestMapping("/method2")
+	public String method2(){
+		logger.info("method2 처리");
+		c.method();
+		e.method();
+		f.method();
+		return "redirect:/exam09/index";
+	}
+	
 }

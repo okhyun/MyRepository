@@ -26,10 +26,35 @@
 	<!-- controller가 component이기때문에 component를 찾는 기능을 해주는 코드 -->
 	
 	<!-- A를 관리 객체로 생성 -->
-	<beans:bean name="aObj" class="com.mycompany.myapp.exam09.A"/>   <!-- bean태그는 스프링관리객체로 생성한느 역할을 함 -->
+	<beans:bean name="a" class="com.mycompany.myapp.exam09.A"/>   <!-- bean태그는 스프링관리객체로 생성한느 역할을 함 -->
 	
 	<!-- B를 관리 객체로 생성 -->
-	<beans:bean name="bObj" class="com.mycompany.myapp.exam09.B"/>  
+	<beans:bean name="b" class="com.mycompany.myapp.exam09.B"/> 
+	
+	<!-- C를 관리 객체로 생성 -->
+	<beans:bean name="c" class="com.mycompany.myapp.exam09.C">
+		<beans:constructor-arg ref="d"/>
+	</beans:bean>   
+	
+	
+	<!-- D를 관리 객체로 생성 -->
+	<beans:bean name="d" class="com.mycompany.myapp.exam09.D"/>
+	
+	
+	<!-- E를 관리 객체로 생성 -->
+	<beans:bean name="e" class="com.mycompany.myapp.exam09.E">
+		<beans:constructor-arg ref="b"/>
+		<beans:constructor-arg ref="d"/>
+	</beans:bean>
+	
+	
+	<!-- F를 관리 객체로 생성 -->
+	<beans:bean name="f" class="com.mycompany.myapp.exam09.F">
+		<beans:constructor-arg ref="serviceA"/>
+		<beans:constructor-arg ref="serviceB"/>
+		<beans:constructor-arg ref="serviceCImpl1"/>
+	</beans:bean>
+	  
 	
 	<!-- ServiceA를 관리 객체로 생성 -->
 	<beans:bean name="serviceA" class="com.mycompany.myapp.exam09.ServiceA"/>
@@ -46,11 +71,14 @@
 	<!-- Exam09Controller 객체를 찾아서 가져오기 -->
 	<beans:bean name="exam09Controller" class="com.mycompany.myapp.exam09.Exam09Controller">
 		<!-- Setter 주입 -->
-		<beans:property name="a" ref="aObj"/>   <!--name=setter의 이름, ref=관리객체의 이름(의존객체의 이름) -->
-		<beans:property name="b" ref="bObj"/>
+		<beans:property name="a" ref="a"/>   <!--name=setter의 이름, ref=관리객체의 이름(의존객체의 이름) -->
+		<beans:property name="b" ref="b"/>
 		<beans:property name="serviceA" ref="serviceA"/>
 		<beans:property name="serviceB" ref="serviceB"/>
 		<beans:property name="serviceC" ref="serviceCImpl1"/>
 		<beans:property name="serviceD" ref="serviceDImpl1"/>
+		<beans:property name="c" ref="c"/>
+		<beans:property name="e" ref="e"/>
+		<beans:property name="f" ref="f"/>
 	</beans:bean>
 </beans:beans>
