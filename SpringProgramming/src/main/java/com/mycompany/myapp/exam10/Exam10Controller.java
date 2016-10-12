@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -32,7 +33,7 @@ public class Exam10Controller {
 	public Service service;
 	//@Autowired--> Type으로 주입  컨테이너안에 같은 객체가 2개이상이면 에러가 난다.
 	//@Resource --> 등록이름으로 주입
-	@Resource(name = "serviceImpl1")
+	@Resource(name = "serviceImpl1") //첫글자는 소문자로,  이름을 바꾸고자 하면 class안에 있는 @Component 옆에 이름을 지정한다. 
 	public void setService(Service service) {
 		logger.info("setService() 실행");
 		this.service = service;
