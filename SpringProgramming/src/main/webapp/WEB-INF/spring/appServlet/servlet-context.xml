@@ -17,7 +17,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> <!--예약된 이름   -->
 		<beans:property name="prefix" value="/WEB-INF/views/" />   
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
@@ -77,7 +77,7 @@
 		<beans:property name="serviceB" ref="serviceB"/>
 		<beans:property name="serviceC" ref="serviceCImpl1"/>
 		<beans:property name="serviceD" ref="serviceDImpl1"/>
-		<beans:property name="c" ref="c"/>
+		<beans:property name="c" ref="c"/> <!-- ref는 객체  -->
 		<beans:property name="e" ref="e"/>
 		<beans:property name="f" ref="f"/>
 	</beans:bean>
