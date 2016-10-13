@@ -112,5 +112,38 @@ public class Exam11Controller { //등록될때는 이름의 첫글자가 소문�
 		model.addAttribute("boardlist", list);
 		return "exam11/boardList";
 	}
+	
+	
+	@RequestMapping("/boardView")
+	public String boardview(int bno, Model model) { //String을 넣었을때 bno가 넘어오지 않아도 null값이  들어가지만 int일때는 bno값이 들어오지 않으면 안된다.
+		logger.info("boardView 처리");
+		Board board = boardService.getBoard(bno); //board타입으로
+		model.addAttribute("board", board); //board 이름을 지정한 이유는 jsp파일에서 board로 지정했기에 board라는 이름으로 찾아온다.
+		return "exam11/boardView";
+	}
+	
+	@RequestMapping(value="/boardUpdate" , method=RequestMethod.GET)
+	public String boardUpdateForm(int bno, Model model) { //String을 넣었을때 bno가 넘어오지 않아도 null값이  들어가지만 int일때는 bno값이 들어오지 않으면 안된다.
+		logger.info("boardUpdateForm 처리");
+		Board board = boardService.getBoard(bno); 
+		model.addAttribute("board", board); //board 이름을 지정한 이유는 jsp파일에서 board로 지정했기에 board라는 이름으로 찾아온다.
+		return "exam11/boardUpdateForm";
+	}
+	
+	
+	@RequestMapping(value="/boardUpdate" , method=RequestMethod.POST)
+	public String boardUpdateForm(Board board) { 
+		logger.info("boardUpdate 처리");
+		boardService.updateBoard(board); 
+		return "redirect:/exam11/boardList";
+	}
+	
+	
+	@RequestMapping("/boardDelete")
+	public String boardDelete(int bno) { //String을 넣었을때 bno가 넘어오지 않아도 null값이  들어가지만 int일때는 bno값이 들어오지 않으면 안된다.
+		logger.info("boardDelete 처리");
+		boardService.deleteBoard(bno); 
+		return "redirect:/exam11/boardList";
+	}
 
 }

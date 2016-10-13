@@ -31,8 +31,8 @@ public class Exam10Controller {
 	}
 	
 	public Service service;
-	//@Autowired--> Type으로 주입  컨테이너안에 같은 객체가 2개이상이면 에러가 난다.
-	//@Resource --> 등록이름으로 주입
+	//@Autowired--> Type으로 주입  컨테이너안에 같은 객체가 2개이상이면 에러가 난다. 필드,set, 생성자 주입 다 가능하다.
+	//@Resource --> 등록이름으로 주입 Set 주입만 가능하다
 	@Resource(name = "serviceImpl1") //첫글자는 소문자로,  이름을 바꾸고자 하면 class안에 있는 @Component 옆에 이름을 지정한다. 
 	public void setService(Service service) {
 		logger.info("setService() 실행");
