@@ -16,7 +16,7 @@ public class Exam01 {
 		
 		//SQL문을 보내고 실행시킴
 		String sql = "select empno, ename from emp";
-		PreparedStatement pstmt =  conn.prepareStatement(sql);
+		PreparedStatement pstmt =  conn.prepareStatement(sql); 
 		ResultSet rs = pstmt.executeQuery();
 		
 		//결과셋에서 한 행씩 읽기

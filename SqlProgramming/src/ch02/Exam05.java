@@ -34,8 +34,8 @@ public class Exam05 {
 			} catch (Exception e) {
 				
 				try {conn.close();} catch (SQLException e2) {}
-				e.printStackTrace();
-			}
+				e.printStackTrace(); 
+			} 
 
 	}
 

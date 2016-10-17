@@ -30,7 +30,7 @@ public class Exam03 {
 			int sal = rs.getInt("yearsal");
 			System.out.println(empno + ":" + ename + ":" + sal);
 		}
-		
+		 
 		rs.close();
 		pstmt.close();
 		conn.close();

@@ -29,7 +29,7 @@ public class Exam02 {
 			int sal = rs.getInt("sal");
 			System.out.println(empno + ":" + ename + ":" + sal);
 		}
-		
+		 
 		rs.close();
 		pstmt.close();
 		conn.close();

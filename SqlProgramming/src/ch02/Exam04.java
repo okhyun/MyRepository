@@ -34,7 +34,7 @@ public class Exam04 {
 		
 		rs.close();
 		pstmt.close();
-		conn.close();
+		conn.close(); 
 
 	}
 
