@@ -35,9 +35,9 @@ public class Exam06 {
 			Class.forName("oracle.jdbc.OracleDriver"); //jdbc Driver를 로드한다.
 				conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "tester1", "kosa12345"); // DriverManager가 로드한 Driver를 사용한다.
 				String sql = "select * from emp where empno=?";
-				PreparedStatement pstmt = conn.prepareStatement(sql);
+				PreparedStatement pstmt = conn.prepareStatement(sql); //sql문의 value값을 테이블에 넣어준다. 
 				pstmt.setInt(1,  searchEmpno);
-				ResultSet rs = pstmt.executeQuery(); 
+				ResultSet rs = pstmt.executeQuery(); //조회할 데이터일때만 Query를 쓴다. 즉 select문을 쓸때
 				if(rs.next()) {
 					 emp = new Employee(); //객체를 넣어줬다.
 					 emp.setEmpno(rs.getInt("empno"));
