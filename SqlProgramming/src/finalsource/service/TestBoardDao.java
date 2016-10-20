@@ -13,11 +13,11 @@ import finalsource.dto.Member;
 
 public class TestBoardDao {
 	public static void main(String[] args) {
-		//testInsert();
+		testInsert();
 		//testSelectByBno();
 		//testSelectByBtitle();
 		//testUpdate();
-		testDeleteByBno();
+		//testDeleteByBno();
 	}
 	
 	public static void testInsert() {
@@ -29,16 +29,16 @@ public class TestBoardDao {
 			BoardDao dao = new BoardDao();
 			dao.setConn(conn);
 			
-			Board board = new Board();
-			board.setBno(10);
-			board.setBtitle("제목777");
-			board.setBcontent("내용777");
-			board.setBwriter("user777");
-			board.setBhitcount(7);
-			board.setBdate(new Date());
-			
-			int rowNo = dao.insert(board);
-			System.out.println(rowNo + "행이 저장됨");
+			for(int i =1; i<10000; i++) {
+				Board board = new Board();
+				board.setBtitle("테스트" + i + "제목");
+				board.setBcontent("테스트" + i + "내용");
+				board.setBwriter("user777");
+				board.setBhitcount(7);
+				
+				int rowNo = dao.insert(board);
+			}
+			System.out.println("10000행이 저장됨");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -55,7 +55,7 @@ public class TestBoardDao {
 			BoardDao dao = new BoardDao();
 			dao.setConn(conn);
 			
-			Board board = dao.selectByBno(12);
+			Board board = dao.selectByBno(10);
 			if(board != null) {
 				System.out.print(board.getBno() + ":");
 				System.out.print(board.getBtitle() + ":");
@@ -82,7 +82,7 @@ public class TestBoardDao {
 			BoardDao dao = new BoardDao();
 			dao.setConn(conn);
 			
-			List<Board> list = dao.selectByBtitle("사용");
+			List<Board> list = dao.selectByBtitle("제목");
 			for(Board board : list) {
 				System.out.print(board.getBno() + ":");
 				System.out.print(board.getBtitle() + ":");
@@ -109,7 +109,7 @@ public class TestBoardDao {
 			dao.setConn(conn);
 			
 			Board board = new Board();
-			board.setBno(15);
+			board.setBno(10);
 			board.setBtitle("제목20");
 			board.setBcontent("내용20");
 			board.setBwriter("user20");
@@ -134,7 +134,7 @@ public class TestBoardDao {
 			BoardDao dao = new BoardDao();
 			dao.setConn(conn);
 			
-			int rowNo = dao.deleteByBno(777);
+			int rowNo = dao.deleteByBno(10);
 			System.out.println(rowNo + "행이 삭제됨");
 		} catch (Exception e) {
 			e.printStackTrace();

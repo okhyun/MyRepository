@@ -2,6 +2,7 @@
 create table member(
 mid varchar(10) not null,
 mname varchar(10) not null,
+mpassword varchar(15) null,
 mage number(3,0) null,
 mbirth date not null
 );

@@ -7,7 +7,14 @@ public class Member {
 	private String mname;
 	private int mage;
 	private Date mbirth;
+	private String mpassword;
 	
+	public String getMpassword() {
+		return mpassword;
+	}
+	public void setMpassword(String mpassword) {
+		this.mpassword = mpassword;
+	}
 	public int getMage() {
 		return mage;
 	}
