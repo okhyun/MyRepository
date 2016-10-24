@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import finalsource.dto.Board;
-import finalsource.dto.Member;
 
 public class BoardDao {
 	private Connection conn; //하나의 연결로 여러개를 사용 
@@ -91,5 +90,34 @@ public class BoardDao {
 		int rowNo = pstmt.executeUpdate();
 		pstmt.close();
 		return rowNo;
+	}
+	
+	public List<Board> selectByPage(int pageNo, int rowsPerPage) throws SQLException {
+		String sql = "";
+		sql+= "select rn, bno, btitle, bcontent, bwriter, bhitcount, bdate ";
+		sql+= "from ( ";
+		sql+=  "select rownum as rn, bno, btitle, bcontent, bwriter, bhitcount, bdate ";
+		sql+=  "from (select bno, btitle, bcontent, bwriter, bhitcount, bdate from board order by bno desc) ";
+		sql+=  "where rownum<= ? ";
+		sql+= ") ";
+		sql+="where rn>= ? ";
+		List<Board> list = new ArrayList<>();
+		PreparedStatement pstmt = conn.prepareStatement(sql);	
+		pstmt.setInt(1, pageNo*rowsPerPage);
+		pstmt.setInt(2, (pageNo-1)*rowsPerPage+1);
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+			Board board = new Board();
+			board.setBno(rs.getInt("bno"));
+			board.setBtitle(rs.getString("btitle"));
+			board.setBcontent(rs.getString("bcontent"));
+			board.setBwriter(rs.getString("bwriter"));
+			board.setBhitcount(rs.getInt("bhitcount"));
+			board.setBdate(rs.getDate("bdate"));
+			list.add(board);
+		}
+		rs.close();
+		pstmt.close();
+		return list;
 	}
 }
