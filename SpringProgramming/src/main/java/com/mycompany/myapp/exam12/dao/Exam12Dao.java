@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import com.mycompany.myapp.exam12.dto.Member;
 
 @Component
-public class MemberDao {
+public class Exam12Dao {
 	private Connection conn; //하나의 연결로 여러개를 사용 
 	public void setConn(Connection conn) {
 		this.conn = conn;

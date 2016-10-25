@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mycompany.myapp.exam12.dao.MemberDao;
+import com.mycompany.myapp.exam12.dao.Exam12Dao;
 import com.mycompany.myapp.exam12.dto.Member;
 
 
@@ -22,12 +22,11 @@ public class Exam12Service {
 	private DataSource dataSource;
 	
 	@Autowired
-	private MemberDao dao;
+	private Exam12Dao dao;
 	
 	public void join(Member member){
 		Connection conn = null;
 		try {
-			Class.forName("oracle.jdbc.OracleDriver");
 			conn = dataSource.getConnection(); //대여한다.
 			dao.setConn(conn);
 			int rowNo = dao.insert(member);
