@@ -18,7 +18,10 @@ public class MemberService {
 	public static final int LOGIN_FAIL_MPASSWORD = 2;
 	
 	public static final int LOGOUT_SUCCESS = 0;
-	public static final int LOGOUT_FAIL_MID = 1;
+	public static final int LOGOUT_FAIL= 1;
+	
+	public static final int MODIFY_SUCCESS = 0;
+	public static final int MODIFY_FAIL = 1;
 	
 	public static final int WITHDAW_SUCCESS = 0;
 	public static final int WITHDRAW_FAIL = 1;
@@ -31,17 +34,16 @@ public class MemberService {
 		return JOIN_SUCCESS;
 	}
 	
-	public int login(String mid, String mpassword, HttpSession session) {
+	public int login(String mid, String mpassword) {
 		Member member = memberDao.selectByMid(mid);
 		if(member == null) {return LOGIN_FAIL_MID;}
 		if(member.getMpassword().equals(mpassword)==false) {return LOGIN_FAIL_MPASSWORD;}
 		return LOGIN_SUCCESS;
 	} //정보를 가져와야 하기에 타입은 Int--
 		
-	public int logout(HttpSession session) {
-		session.removeAttribute("login");
+	public int logout() {
 		return LOGOUT_SUCCESS;
-	}//로그아웃 정보를 세션에 저장한다
+	}
 	
 	public String findMpassword(String mid, String memail) {
 		Member member = memberDao.selectByMid(mid);
@@ -55,29 +57,34 @@ public class MemberService {
 	}//정보를 가져와야 하기에 타입은 String--
 	
 	
-	public Member info(String mpassword, HttpSession session) {
-		String mid = (String) session.getAttribute("login");
+	public Member info(String mid, String mpassword) {
 		Member member = memberDao.selectByMid(mid);
 		if(member.getMpassword().equals(mpassword) == false) {return null;}
 		return member;
 	}//정보를 가져와야 하기에 타입은 Member--
 	
 	
-	public void modify(Member member) {
-		
+	public int modify(Member member) {
+		Member dbMember = memberDao.selectByMid(member.getMid());
+		if(dbMember.getMpassword().equals(member.getMpassword())==false){return MODIFY_FAIL;}; //수정시 비밀번호 물어볼때
+		int row = memberDao.update(member);
+		if(row !=1) {return MODIFY_FAIL;}
+		return MODIFY_SUCCESS;
 	}
 	
 	
-	public int withdraw(String mpassword, HttpSession session) {
-		String mid = (String)session.getAttribute("login");
+	public int withdraw(String mid, String mpassword) {
 		Member member = memberDao.selectByMid(mid);
 		if(member.getMpassword().equals(mpassword) == false) {return WITHDRAW_FAIL;}
-			logout(session);
 			memberDao.delete(mid);
 			return WITHDAW_SUCCESS;
 	}//정보를 가져와야 하기에 타입은 int--
 	
 	
-	public boolean isMid(String mid) {} //boolean타입을 쓰는 곳에서는 보통is를 쓴다.
-
+	public boolean isMid(String mid) {
+		Member member = memberDao.selectByMid(mid);
+		if(member==null) return false;
+		return true;
+	} //boolean타입을 쓰는 곳에서는 보통is를 쓴다.
+		
 }

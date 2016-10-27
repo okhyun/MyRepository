@@ -18,7 +18,7 @@ public class FreeBoardDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(FreeBoard freeBoard) {
-		String sql = "insert into freeboard(bno, btitle, bcontent, bwriter, bhitcountm, bdate) values(seq_freeboard_bno.nextval, ?, ?, ?, 0, sysdate)";
+		String sql = "insert into freeboard(bno, btitle, bcontent, bwriter, bhitcount, bdate) values(seq_freeboard_bno.nextval, ?, ?, ?, 0, sysdate)";
 		int row = jdbcTemplate.update(
 				sql,
 				freeBoard.getBtitle(),
@@ -33,8 +33,8 @@ public class FreeBoardDao {
 		int row = jdbcTemplate.update(
 				sql,
 				freeBoard.getBtitle(),
+				freeBoard.getBcontent(),
 				freeBoard.getBhitcount(),
-				freeBoard.getBwriter(),
 				freeBoard.getBno()
 		);
 		return row;
@@ -68,8 +68,8 @@ public class FreeBoardDao {
 		String sql = "";
 		sql+= "select rn, bno, btitle, bcontent, bwriter, bhitcount, bdate ";
 		sql+= "from ( ";
-		sql+=  "select rownum as rn, bno, btitle, bwriter, bhitcount, bdate ";
-		sql+=  "from (select bno, btitle, bwriter, bhitcount, bdate from freeboard order by bno desc) ";
+		sql+=  "select rownum as rn, bno, btitle, bcontent, bwriter, bhitcount, bdate ";
+		sql+=  "from (select bno, btitle, bwriter, bcontent, bhitcount, bdate from freeboard order by bno desc) ";
 		sql+=  "where rownum<= ? ";
 		sql+= ") ";
 		sql+="where rn>= ? ";
