@@ -7,33 +7,37 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		글내용
+		포토내용
 		<hr/>
 		<form method="post">
-			<table>
+			<table style="width:570px">
 				<tr>
 					<td style="background-color:orange; width:100px;">번호 </td>
-					<td>${freeboard.bno}</td>
+					<td>${photoBoard.bno}</td>
 				</tr>
 				<tr>
 					<td style="background-color:orange; width:100px;">제목 </td>
-					<td>${freeboard.btitle}</td>
+					<td>${photoBoard.btitle}</td>
 				</tr>
 				<tr>
 					<td style="background-color:orange; width:100px;">내용 </td>
-					<td><pre>${freeboard.bcontent}</pre></td>
+					<td><pre>${photoBoard.bcontent}</pre></td>
 				</tr>
 				<tr>
 					<td style="background-color:orange; width:100px;">글쓴이 </td>
-					<td>${freeboard.bwriter}</td>
+					<td><pre>${photoBoard.bwriter}</pre></td>
 				</tr>
 				<tr>
 					<td style="background-color:orange; width:100px;">조회수 </td>
-					<td>${freeboard.bhitcount}</td>
+					<td><pre>${photoBoard.bhitcount}</pre></td>
 				</tr>
 				<tr>
 					<td style="background-color:orange; width:100px;">날짜 </td>
-					<td>${freeboard.bdate}</td>
+					<td><pre>${photoBoard.bdate}</pre></td>
+				</tr>
+				<tr>
+					<td style="background-color:orange; width:100px;">사진 </td>
+					<td><img src="showPhoto?savedfile=${photoBoard.savedfile}" width="500px"/></td>
 				</tr>
 			</table>	
 			<div>

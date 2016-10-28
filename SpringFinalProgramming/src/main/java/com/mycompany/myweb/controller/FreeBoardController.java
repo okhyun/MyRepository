@@ -7,9 +7,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mycompany.myweb.dto.FreeBoard;
 import com.mycompany.myweb.service.FreeBoardService;
@@ -21,7 +23,22 @@ public class FreeBoardController {
 	private FreeBoardService freeBoardService;
 	
 	@RequestMapping("/list")
-	public String list(@RequestParam(defaultValue="1") int pageNo, Model model) { //원래 pageNo는 String으로 받아야한다.
+	public String list(String pageNo, Model model, HttpSession session) { 
+		System.out.println(pageNo);
+		
+		int intPageNo = 1;
+		if(pageNo == null) {
+			pageNo = (String) session.getAttribute("pageNo");//session에서 불러오기
+			if(pageNo != null) {
+				intPageNo = Integer.parseInt(pageNo);
+			}
+		} else {
+			intPageNo = Integer.parseInt(pageNo);
+		}
+		session.setAttribute("pageNo", String.valueOf(intPageNo)); //session에 저장
+	
+		
+		
 		int rowsPerPage =10; //고정적으로 줘야하는값
 		int pagesPerGroup = 5;
 		
@@ -30,14 +47,14 @@ public class FreeBoardController {
 		int totalPageNo = (totalBoardNo/rowsPerPage) + ((totalBoardNo%rowsPerPage!=0)?1:0); //정수 나누기 정수는 정수기때문에 소수 아래를 생략한다. 그렇ㄷ게 되면 페이지 수가 달라진다. 해서 +해준다
 		int totalGroupNo = (totalPageNo/pagesPerGroup) + ((totalPageNo%pagesPerGroup!=0)?1:0);
 		
-		int groupNo = (pageNo-1)/pagesPerGroup +1; //현재 그룹의값
+		int groupNo = (intPageNo-1)/pagesPerGroup +1; //현재 그룹의값
 		int startPageNo = (groupNo-1)*pagesPerGroup + 1;
 		int endPageNo = startPageNo + pagesPerGroup -1;
 		if(groupNo == totalGroupNo) {endPageNo = totalPageNo;}
 		
-		List<FreeBoard> list = freeBoardService.list(pageNo, rowsPerPage);
+		List<FreeBoard> list = freeBoardService.list(intPageNo, rowsPerPage);
 		
-		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("pageNo", intPageNo);
 		model.addAttribute("rowsPerPage", rowsPerPage);
 		model.addAttribute("pagesPerGroup", pagesPerGroup);
 		model.addAttribute("totalBoardNo", totalBoardNo);
@@ -94,6 +111,14 @@ public class FreeBoardController {
 		freeBoardService.modify(freeBoard);
 		return "redirect:/freeboard/list";
 	}
+	
+	@RequestMapping("/remove") //삭제는 예외가 발생할 확률이 없다. 이유는? 글내용보기 상태에서(정보를 이미 받은 상태) 삭제하기 때문에
+	public String remove(int bno) {
+		freeBoardService.remove(bno);
+		return "redirect:/freeboard/list";
+	}
+	
+	
 
 }
 
