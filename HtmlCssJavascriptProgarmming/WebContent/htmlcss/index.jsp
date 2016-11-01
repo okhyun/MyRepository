@@ -14,5 +14,10 @@
 		4) <a href ="04_css_selector.jsp">CSS 선택자</a>
 		5) <a href ="05_css_location.jsp">CSS 작성위치</a>
 		6) <a href ="06_css_location.jsp">background 관련 css 속성</a>
+		7) <a href ="07_icon.jsp">icon 관련 css 속성</a>
+		8) <a href ="08_table.jsp">table 관련 css 속성</a>
+		9) <a href ="09_location.jsp">location 관련 css 속성</a>
+		10) <a href ="10_float_layout.jsp">float 관련 css 속성</a>
+		11) <a href ="11_flex_layout.jsp">flex 관련 css 속성</a>
 	</body>
 </html>
