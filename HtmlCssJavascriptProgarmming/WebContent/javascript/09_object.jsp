@@ -14,7 +14,7 @@
 					company:"현대",
 					cc:3000,
 					speed:0,
-					start:function() {
+					start:function() { /* start 메소드  function은 실행부 */
 						console.log("시동을 겁니다.");
 					},
 					stop:function() {

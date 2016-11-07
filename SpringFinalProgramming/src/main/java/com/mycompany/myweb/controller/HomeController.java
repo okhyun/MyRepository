@@ -12,6 +12,12 @@ public class HomeController {
 	@RequestMapping("/")//사이트 주소의 /와 같아야한다.
 	public String index() {
 		logger.info("home() 실행2"); //출력되는 정보를(위치) 보기위해서 API를 사용
+		return "index"; //jsp 이름과 같아야한다.
+	}
+	
+	@RequestMapping("/home")//사이트 주소의 /와 같아야한다.
+	public String home() {
+		logger.info("home() 실행2"); //출력되는 정보를(위치) 보기위해서 API를 사용
 		return "home"; //jsp 이름과 같아야한다.
 	}
 	
