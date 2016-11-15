@@ -118,7 +118,7 @@ public class PhotoBoardController {
 		
 		/*브라우저에서 보여주지 않고 강제로 다운로드 할 경우
 		 * String fileName = "사진2.jpg";
-		fileName = URLEncoder.encode(fileName, "UTF-8"); // 한글로 다운로드 하고싶을때 변환해서 사용한다.
+		fileName = URLEncoder.encode(fileName, "UTF-8"); // 한글로 다운로드 하고싶을때 변환해서 사용한다.(강제 다운)
 		response.setHeader("Content-Disposition", "attachment; filename= \"" + fileName + "\""); 
 		//원하는 이름으로 다운로드 photo1.jpg 
 		// \이름\ 역슬래쉬를 넣으면 안에서 띄어쓰기를 해도 상관없이 이름으로 인식한다.*/
@@ -127,7 +127,7 @@ public class PhotoBoardController {
 		response.setContentType(mimeType);
 		
 		OutputStream os = response.getOutputStream();
-		String filePath = request.getServletContext().getRealPath("/WEB-INF/photo/" + fileName);
+		String filePath = request.getServletContext().getRealPath("/WEB-INF/photo/" + fileName); //실제파일의 경로 RealPath
 		InputStream is = new FileInputStream(filePath);
 		
 		byte[] values = new byte[1024];

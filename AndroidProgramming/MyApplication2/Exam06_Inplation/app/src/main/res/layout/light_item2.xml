@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/tou1"
+            android:id="@+id/lightImage1"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="세이나"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:id="@+id/lightTitle1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="나이:19, 지역:일본, 영어/스페인어/아랍어 가능,        서울 전지역 가이드 가능 "
+                android:textColor="#ffffffff"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:layout_weight="1"
+                android:id="@+id/lightContent1"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
