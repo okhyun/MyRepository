@@ -1,4 +1,4 @@
-package com.mycompany.myweb.dto;
+/*package com.mycompany.myweb.dto;
 
 public class Light {
     private String image;
@@ -41,4 +41,4 @@ public class Light {
       this.content = content;
    }
    
-}
+}*/
